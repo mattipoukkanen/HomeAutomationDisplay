@@ -43,7 +43,7 @@ void WorkerThread::run() {
 
     while (!this->isInterruptionRequested()) {
         double change = QRandomGenerator::global()->generateDouble() * high;
-        emit resultReady(QString::number(base_temp + change));
+        emit resultReady(QString::number(base_temp + change, 'f', 1)+" °C");
         sleep(5+(int)change);
     }
 }
